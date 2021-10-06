@@ -37,7 +37,7 @@ f_0_lower = f_0_intended - 5000
 f_0_upper = f_0_intended + 5000
 
 
-popt, pcov = curve_fit(func, freq, magnitude, bounds=([gamma_lower, f_0_lower],[gamma_upper, f_0_upper]), sigma=freq)
+popt, pcov = curve_fit(func, freq, magnitude, bounds=([gamma_lower, f_0_lower],[gamma_upper, f_0_upper]))
 best_fit_gamma = popt[0]
 best_fit_freq = popt[1]
 
