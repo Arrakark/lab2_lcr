@@ -37,7 +37,7 @@ f_0_lower = f_0_intended - 5000
 f_0_upper = f_0_intended + 5000
 
 
-popt, pcov = curve_fit(func, freq, magnitude, bounds=([gamma_lower, f_0_lower],[gamma_upper, f_0_upper]))
+popt, pcov = curve_fit(func, freq, magnitude, bounds=([gamma_lower, f_0_lower],[gamma_upper, f_0_upper]), sigma=freq)
 best_fit_gamma = popt[0]
 best_fit_freq = popt[1]
 
@@ -58,3 +58,11 @@ print("Theoretical gamma = {}".format(gamma_intended))
 print("Theoretical freq = {}".format(f_0_intended))
 print("Best fit gamma = {}".format(best_fit_gamma))
 print("Best fit freq = {}".format(best_fit_freq))
+
+
+##################################
+####   Uncertainty Calcs      ####
+##################################
+
+perr = np.sqrt(np.diag(pcov))
+print(perr)
